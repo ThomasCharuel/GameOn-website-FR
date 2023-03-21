@@ -34,15 +34,13 @@ class ModalManager  {
 
   // launch modal form
   launch() {
-    this.modalbg.style.display = "block";
-    this.form.style.opacity = 1;
-    this.confirmationScreen.style.opacity = 0;
-    this.confirmationScreen.style["z-index"] = -100;
+    this.modalbg.classList.add("show");
+    this.confirmationScreen.classList.remove("show");
   }
 
   // hide modal form
   hide() {
-    this.modalbg.style.display = "none";
+    this.modalbg.classList.remove("show");
   }
 
   // Handle modal form submit
@@ -98,9 +96,7 @@ class ModalManager  {
 
     // If form is valid we display a confirmation message
     if (formIsValid) {
-      this.form.style.opacity = 0;
-      this.confirmationScreen.style.opacity = 1;
-      this.confirmationScreen.style["z-index"] = 100;
+      this.confirmationScreen.classList.add("show");
     }
   }
 }

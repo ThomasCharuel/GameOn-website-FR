@@ -168,6 +168,10 @@ main {
   background-color: rgba(26, 39, 156, 0.4);
 }
 
+.bground.show {
+  display: block;
+}
+
 .content {
   margin: 5% auto;
   width: 100%;
@@ -409,6 +413,7 @@ input[data-error]::after {
 /* Modal Confirmation Screen */
 
 #confirmation-screen {
+  background: #232323;
   padding: inherit;
   position: absolute;
   left: 0;
@@ -417,6 +422,11 @@ input[data-error]::after {
   height: 100%;
   display: flex;
   flex-direction: column;
+  z-index: -100;
+}
+
+#confirmation-screen.show {
+  z-index: 100;
 }
 
 .confirmation-text-wrapper {
