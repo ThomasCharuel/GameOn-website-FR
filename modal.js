@@ -7,15 +7,17 @@ function editNav() {
   }
 }
 
-class ModalManager{
+class ModalManager  {
   
   constructor() {
     // DOM Elements
     this.modalbg = document.querySelector(".bground");
     this.modalBtn = document.querySelectorAll(".modal-btn");
-    this.hideModalBtn = document.querySelectorAll(".close");
+    this.hideModalBtn = document.querySelectorAll(".close-modal");
     this.formSubmitBtn = document.querySelector('#reserve-form input[type="submit"]');
     this.formData = document.querySelectorAll(".formData");
+    this.form = document.querySelector('#reserve-form');
+    this.confirmationScreen = document.querySelector('#confirmation-screen');
   }
 
   // setup Modal events
@@ -33,6 +35,9 @@ class ModalManager{
   // launch modal form
   launch() {
     this.modalbg.style.display = "block";
+    this.form.style.opacity = 1;
+    this.confirmationScreen.style.opacity = 0;
+    this.confirmationScreen.style["z-index"] = -100;
   }
 
   // hide modal form
@@ -42,6 +47,7 @@ class ModalManager{
 
   // Handle modal form submit
   handleFormSubmit(e) {
+    e.preventDefault(); // Prevent default submit behavior
     // Will be set to false if there is at least one invalid input
     let formIsValid = true;
 
@@ -87,14 +93,16 @@ class ModalManager{
           formDataInput.removeAttribute("data-error-visible");
           formDataInput.removeAttribute("data-error");
         }
-      } 
+      }
     }
 
-    // If form is not valid, we prevent it from being submitted
-    if (!formIsValid) {
-      e.preventDefault();
+    // If form is valid we display a confirmation message
+    if (formIsValid) {
+      this.form.style.opacity = 0;
+      this.confirmationScreen.style.opacity = 1;
+      this.confirmationScreen.style["z-index"] = 100;
     }
-  } 
+  }
 }
 
 const modalManager = new ModalManager();
