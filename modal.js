@@ -13,19 +13,26 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const hideModalBtn = document.querySelectorAll(".close");
 const formData = document.querySelectorAll(".formData");
 
-// launch modal event
-modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+class ModalManager{
+  // setup Modal events
+  setUpModalEvents() {
+    // launch modal event
+    modalBtn.forEach((btn) => btn.addEventListener("click", this.launchModal));
 
-// launch modal form
-function launchModal() {
-  modalbg.style.display = "block";
+    // hide modal event
+    hideModalBtn.forEach((btn) => btn.addEventListener("click", this.hideModal));
+  }
+
+  // launch modal form
+  launchModal() {
+    modalbg.style.display = "block";
+  }
+
+  // hide modal form
+  hideModal() {
+    modalbg.style.display = "none";
+  }
 }
 
-// hide modal event
-hideModalBtn.forEach((btn) => btn.addEventListener("click", hideModal));
-
-// hide modal form
-function hideModal() {
-  modalbg.style.display = "none";
-}
-
+const modalManager = new ModalManager();
+modalManager.setUpModalEvents();
