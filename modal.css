@@ -11,9 +11,6 @@
 /* Landing Page */
 
 body {
-  margin: 0;
-  display: flex;
-  flex-direction: column;
   font-family: var(--font-default);
   font-size: 18px;
   max-width: 1300px;
@@ -26,36 +23,33 @@ p {
 }
 
 .topnav {
-  overflow: hidden;
-  margin: 3.5%;
+  display: flex;
+  justify-content: space-between;
+  margin: 3.5% 0px 5%;
 }
+
 .header-logo {
-    float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
+
 .main-navbar {
-    float: right;
+  display: flex;
+  gap: 10px;
 }
+
 .topnav a {
-  float: left;
-  display: block;
-  color: #000000;
-  text-align: center;
-  padding: 12px 12px;
-  margin: 5px;
+  color: #232323;
+  padding: 12px;
   text-decoration: none;
-  font-size: 20px;
+  font-size: 18px;
 }
 
-.topnav a:hover {
+.topnav a:hover, .topnav a.active {
   background-color: #ff0000;
   color: #ffffff;
-  border-radius: 15px;
-}
-
-.topnav a.active {
-  background-color: #ff0000;
-  color: #ffffff;
-  border-radius: 15px;
+  border-radius: 8px;
 }
 
 .topnav a.active::after {
