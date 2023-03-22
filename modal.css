@@ -25,6 +25,7 @@
 
 body {
   font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-weight: 400;
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
@@ -53,6 +54,7 @@ body {
   padding: 12px;
   text-decoration: none;
   font-size: 18px;
+  font-weight: 500;
 }
 
 .topnav a:hover, .topnav a.active {
