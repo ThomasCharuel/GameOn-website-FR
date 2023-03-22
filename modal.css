@@ -23,6 +23,7 @@
   border: unset;
   cursor: pointer;
   border-radius: 8px;
+  font-weight: 500;
 }
 .primary-btn:hover {
   background: #3876ac;
@@ -47,7 +48,7 @@ body {
 .topnav {
   display: flex;
   justify-content: space-between;
-  margin: 3.5% 0px 5%;
+  margin: 3.5% 0px 7%;
 }
 
 .header-logo {
@@ -89,23 +90,17 @@ body {
   display: none;
 }
 
-/** Main **/
-main {
-  margin-top: 84px;
-}
-
 /** Hero section **/
 .hero-section {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 8px 0px;
-  margin-bottom: 10px;
   position: relative;
   background: #232323;
+  color: white;
 }
 .hero-content {
   padding: 53px 0px 70px 56px;
-  color: #fff;
   position: relative;
   z-index: 10;
 
@@ -391,38 +386,43 @@ footer {
     text-align: left;
   }
 
-  /** Main **/
-  main {
-    margin-top: 28px;
-  }
+  /** Hero section **/
   .hero-section {
-    display: block;
+    border-radius: unset;
+    background: unset;
     box-shadow: unset;
+    color: unset;
+    padding: 0px 30px;
   }
   .hero-content {
-    background: #fff;
-    color: #000;
-    padding: 20px;
-  }
-  .hero-content .btn-signup {
-    display: none;
+    padding: unset;
+    gap: 17px;
+    z-index: unset;
   }
   .hero-headline {
-    font-size: 4.5rem;
-    white-space: normal;
+    font-size: 40px;
   }
   .hero-text {
     width: unset;
-    font-size: 1.5rem;
+    font-size: 13px;
+  }
+  .hero-content .hero-cta {
+    display: none;
+  }
+  .hero-img {
+    position: unset;
+    margin-top: 40px;
+    width: 100%;
   }
   .hero-img img {
+    width: 100%;
     border-radius: 10px;
-    margin-top: 40px;
   }
-  .hero-section > .btn-signup {
+  .hero-section > .modal-btn {
     display: block;
-    margin: 32px auto 10px;
-    padding: 12px 35px;
+    font-size: 14px;
+    margin: 30px auto 0px;
+    padding: 10px 32px;
   }
 
   /** Footer **/
