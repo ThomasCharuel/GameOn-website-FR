@@ -1,17 +1,23 @@
-:root {
-  --font-default: "DM Sans", Arial, Helvetica, sans-serif;
-  --font-slab: var(--font-default);
-  --modal-duration: 0.8s;
+/** Animations **/
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
 }
+
+/** Reset **/
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
-/* Landing Page */
 
 body {
-  font-family: var(--font-default);
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
   font-size: 18px;
   max-width: 1300px;
   margin: 0 auto;
@@ -22,6 +28,7 @@ p {
   padding: 0.5vw;
 }
 
+/** Navbar **/
 .topnav {
   display: flex;
   justify-content: space-between;
@@ -66,39 +73,7 @@ p {
   display: none;
 }
 
-@media screen and (max-width: 768px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-  }
-}
-
-@media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
-  .topnav.responsive .icon {
-    position: absolute;
-    right: 0;
-    top: 0;
-  }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-}
-
-
-
- @media screen and (max-width: 540px) {
-  .topnav a {display: none;}
-  .topnav a.icon {
-    float: right;
-    display: block;
-    margin-top: -15px;
-  }
-} 
-
+/** Main **/
 main {
   font-size: 130%;
   font-weight: bolder;
@@ -109,8 +84,6 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -129,13 +102,14 @@ main {
   background: #3876ac;
 }
 
-.footer {
-  margin: 20px;
-  padding: 10px;
-  font-family: var(--font-slab);
+/** Footer **/
+footer {
+  padding-left: 2vw;
+  padding-right: 2vw;
+  margin: 0 20px;
 }
 
-/* Modal form */
+/** Modal form **/
 
 .button {
   background: #fe142f;
@@ -176,7 +150,7 @@ main {
   width: 100%;
   max-width: 500px;
   animation-name: modalopen;
-  animation-duration: var(--modal-duration);
+  animation-duration: 0.8s;
   background: #232323;
   border-radius: 10px;
   overflow: hidden;
@@ -192,7 +166,6 @@ main {
 }
 
 label {
-  font-family: var(--font-default);
   font-size: 17px;
   font-weight: normal;
   display: inline-block;
@@ -229,12 +202,6 @@ input {
 .formData[data-error-visible="true"] .text-control {
   border: 2px solid #e54858;
 }
-/* 
-input[data-error]::after {
-    content: attr(data-error);
-    font-size: 0.4em;
-    color: red;
-} */
 .checkbox-label,
 .checkbox2-label {
   position: relative;
@@ -508,11 +475,36 @@ input[data-error]::after {
 .hero-section > .btn-signup {
   display: none;
 }
-footer {
-  padding-left: 2vw;
-  padding-right: 2vw;
-  margin: 0 20px;
+
+/** Responsive Rules **/
+@media screen and (max-width: 768px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
 }
+
+@media screen and (max-width: 540px) {
+  .topnav a.icon {
+    margin-top: -15px;
+  }
+} 
 @media screen and (max-width: 800px) {
   .hero-section {
     display: block;
@@ -551,14 +543,3 @@ footer {
     text-align: center;
   }
 }
-
-@keyframes modalopen {
-  from {
-    opacity: 0;
-    transform: translateY(-150px);
-  }
-  to {
-    opacity: 1;
-  }
-}
-
