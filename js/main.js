@@ -93,9 +93,12 @@ class ModalManager  {
       }
     }
 
-    // If form is valid we display a confirmation message
+    // If form is valid
     if (formIsValid) {
+      // Display a confirmation message
       this.confirmationScreen.classList.add("show");
+      // Reset form
+      document.getElementById("reserve-form").reset();
     }
   }
 }

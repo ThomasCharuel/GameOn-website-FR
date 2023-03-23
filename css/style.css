@@ -321,9 +321,12 @@ main {
   display: flex;
   flex-direction: column;
   z-index: -100;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
 }
 #confirmation-screen.show {
   z-index: 100;
+  opacity: 1;
 }
 .confirmation-text-wrapper {
   flex-grow: 1;
