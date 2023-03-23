@@ -302,10 +302,8 @@ main {
 .checkbox-control:checked + .checkbox-label .checkbox-icon::after {
   opacity: 1;
 }
-
 .btn-submit {
   margin: auto;
-  text-align: center;
   width: 180px;
   padding: 12px 0px;
   font-size: 14px;
@@ -324,20 +322,21 @@ main {
   flex-direction: column;
   z-index: -100;
 }
-
 #confirmation-screen.show {
   z-index: 100;
 }
-
 .confirmation-text-wrapper {
   flex-grow: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 36px;
 }
-
-.confirmation-btn:hover {
-  background: #3876ac;
+.confirmation-btn {
+  margin: auto;
+  width: 180px;
+  padding: 12px 0px;
+  font-size: 14px;
 }
 
 /** Footer **/
