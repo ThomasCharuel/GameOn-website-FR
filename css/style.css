@@ -376,32 +376,38 @@ footer {
   /** Navbar **/
   .topnav {
     padding: 4% 30px;
+    position: relative;
   }
   .header-logo img{
     width: 30vw;
-  }
-  .navbar-link {
-    display: none;
   }
   .responsive-navbar-button {
     display: block;
     color: var(--color-primary);
     font-size: 1.5rem;
   }
-  /*
-  .topnav.responsive {
-    position: relative;
-  }
-  .topnav.responsive .icon {
+  .main-navbar {
+    display: none;
+    gap: unset;
     position: absolute;
-    right: 0;
-    top: 0;
+    left: 0;
+    top: 100%;
+    width: 100%;
+    flex-direction: column; 
+    background-color: white;
+    z-index: 200;
+    border-bottom: 1px solid #f4f4f4;
+    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
   }
-  .topnav.responsive a {
-    float: none;
-    display: block;
-    text-align: left;
-  } */
+  .topnav.show-hidden-navbar .main-navbar {
+    display: flex;
+  }
+  .navbar-link:hover, .navbar-link.active {
+    border-radius: unset;
+  }
+  .navbar-link.active::after {
+    content: unset;
+  }
 
   /** Hero section **/
   .hero-section {

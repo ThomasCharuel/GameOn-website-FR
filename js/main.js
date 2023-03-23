@@ -1,14 +1,13 @@
-function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
+/***
+When called, this function toggle a class in the navbar 
+to display (or not) the navbar links 
+***/
+function toggleHiddenNavbar() {
+  const navbar = document.querySelector(".topnav");
+  navbar.classList.toggle("show-hidden-navbar");
 }
 
 class ModalManager  {
-  
   constructor() {
     // DOM Elements
     this.modalbg = document.querySelector(".bground");

@@ -12,17 +12,17 @@
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="topnav" id="myTopnav">
+  <div class="topnav">
     <div class="header-logo">
       <img alt="logo" src="assets/img/Logo.png">
     </div>
-    <div class="main-navbar">
+    <a href="javascript:void(0);" class="responsive-navbar-button" onclick="toggleHiddenNavbar()"><i class="fa fa-bars"></i></a>
+    <navbar class="main-navbar">
       <a href="#" class="navbar-link active"><span>Détails de l'évènement</span></a>
       <a href="#" class="navbar-link"><span>À Propos</span></a>
       <a href="#" class="navbar-link"><span>Contact</span></a>
       <a href="#" class="navbar-link"><span>Évènements passés</span></a>
-      <a href="javascript:void(0);" class="responsive-navbar-button" onclick="editNav()"><i class="fa fa-bars"></i></a>
-    </div>
+    </navbar>
   </div>
   <main>
     <div class="hero-section">
