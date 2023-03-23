@@ -42,6 +42,15 @@ class ModalManager  {
     this.modalbg.classList.remove("show");
   }
 
+  checkValidityBirthdate(birthdateInput) {
+    const birthdate = new Date(birthdateInput.value);
+    // Compute age of the user
+    const years = new Date(new Date() - new Date(birthdate)).getFullYear() - 1970;
+
+    // Check that age is at least 15
+    return years >= 15;
+  }
+
   // Handle modal form submit
   handleFormSubmit(e) {
     e.preventDefault(); // Prevent default submit behavior
@@ -52,16 +61,24 @@ class ModalManager  {
     // Each input must be valid to submit form.
     for (let formDataInput of this.formData) {
       for (let input of formDataInput.querySelectorAll("input")) {
+        // Display error messages based on the input
+        // Input not valid
+        const input_not_valid = !input.checkValidity();
+
+        // Input is birthdate and birthdate not valid
+        const birthdate_not_valid = (
+          input.getAttribute("name") === "birthdate" && !this.checkValidityBirthdate(input));
+
         // If input is not valid, we prevent form from being submitted
-        if (!input.checkValidity()) {
+        if (input_not_valid) {
           formIsValid = false;
           
           // Add error message based on input name
           switch (input.getAttribute("name")) {
-            case "first":
+            case "firstname":
               formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
               break;
-            case "last":
+            case "lastname":
               formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
               break;
             case "email":
@@ -83,13 +100,15 @@ class ModalManager  {
 
           // Set "data-error-visible" attribute to display error message
           formDataInput.setAttribute("data-error-visible", "true");
-            
-          break; // Stop the loop with the first invalid input
+        } else if (birthdate_not_valid) {
+          formDataInput.setAttribute("data-error", "Vous devez avoir au moins 15 ans pour vous inscrire.");
+          formDataInput.setAttribute("data-error-visible", "true");
         } else {
           // Remove error message if previously set
           formDataInput.removeAttribute("data-error-visible");
           formDataInput.removeAttribute("data-error");
         }
+        break; // Stop the loop with the first invalid input
       }
     }
 

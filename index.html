@@ -46,91 +46,78 @@
       <div class="modal-container">
         <span class="close close-modal"></span>
         <div class="modal-body">
-          <form id="reserve-form" name="reserve">
+          <form id="reserve-form" name="reserve" novalidate>
             <div class="formData">
-              <label for="first" class="form-label">Prénom</label>
-              <input class="text-control" type="text" id="first" name="first" minlength="2" required>
+              <label for="firstname-input" class="form-label">Prénom</label>
+              <input class="text-control" type="text" id="firstname-input" name="firstname" minlength="2" required>
             </div>
             
             <div class="formData">
-              <label for="last" class="form-label">Nom</label>
-              <input class="text-control" type="text" id="last" name="last" minlength="2" required>
+              <label for="lastname-input" class="form-label">Nom</label>
+              <input class="text-control" type="text" id="lastname-input" name="lastname" minlength="2" required>
             </div>
             
             <div class="formData">
-              <label for="email" class="form-label">E-mail</label>
-              <input class="text-control" type="email" id="email" name="email">
+              <label for="email-input" class="form-label">E-mail</label>
+              <input class="text-control" type="email" id="email-input" name="email">
             </div>
             
             <div class="formData">
-              <label for="birthdate" class="form-label">Date de naissance</label>
-              <input class="text-control" type="date" id="birthdate" name="birthdate" required>
+              <label for="birthdate-input" class="form-label">Date de naissance</label>
+              <input class="text-control" type="date" id="birthdate-input" name="birthdate" required>
             </div>
             
             <div class="formData">
-              <label for="quantity" class="form-label">À combien de tournois GameOn avez-vous déjà participé ?</label>
-              <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+              <label for="quantity-input" class="form-label">À combien de tournois GameOn avez-vous déjà participé ?</label>
+              <input type="number" class="text-control" id="quantity-input" name="quantity" min="0" max="99">
             </div>
             
             <div class="formData">
               <p class="form-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-              
-                <div class="radio-buttons-wrapper">
+              <div class="radio-buttons-wrapper">
                 <div class="radio-button">
-                  <input class="radio-control" type="radio" id="location1" name="location" value="New York" required>
-                  <label class="radio-label" for="location1">
-                    <span class="radio-icon"></span>New York
-                  </label>
+                  <input class="radio-control" type="radio" id="location1-input" name="location" value="New York" required>
+                  <label class="radio-label" for="location1-input"><span class="radio-icon"></span>New York</label>
                 </div>
                 
                 <div class="radio-button">
-                  <input class="radio-control" type="radio" id="location2" name="location" value="San Francisco">
-                  <label class="radio-label" for="location2">
-                    <span class="radio-icon"></span>San Francisco
-                  </label>
+                  <input class="radio-control" type="radio" id="location2-input" name="location" value="San Francisco">
+                  <label class="radio-label" for="location2-input"><span class="radio-icon"></span>San Francisco</label>
                 </div>
                 
                 <div class="radio-button">
-                  <input class="radio-control" type="radio" id="location3" name="location" value="Seattle">
-                  <label class="radio-label" for="location3">
-                    <span class="radio-icon"></span>Seattle
-                  </label>
+                  <input class="radio-control" type="radio" id="location3-input" name="location" value="Seattle">
+                  <label class="radio-label" for="location3-input"><span class="radio-icon"></span>Seattle</label>
                 </div>
 
                 <div class="radio-button">
-                  <input class="radio-control" type="radio" id="location4" name="location" value="Chicago">
-                  <label class="radio-label" for="location4">
-                    <span class="radio-icon"></span>Chicago
-                  </label>
+                  <input class="radio-control" type="radio" id="location4-input" name="location" value="Chicago">
+                  <label class="radio-label" for="location4-input"><span class="radio-icon"></span>Chicago</label>
                 </div>
 
                 <div class="radio-button">
-                  <input class="radio-control" type="radio" id="location5" name="location" value="Boston">
-                  <label class="radio-label" for="location5">
-                    <span class="radio-icon"></span>Boston
-                  </label>
+                  <input class="radio-control" type="radio" id="location5-input" name="location" value="Boston">
+                  <label class="radio-label" for="location5-input"><span class="radio-icon"></span>Boston</label>
                 </div>
 
                 <div class="radio-button">
-                  <input class="radio-control" type="radio" id="location6" name="location" value="Portland">
-                  <label class="radio-label" for="location6">
-                    <span class="radio-icon"></span>Portland
-                  </label>
+                  <input class="radio-control" type="radio" id="location6-input" name="location" value="Portland">
+                  <label class="radio-label" for="location6-input"><span class="radio-icon"></span>Portland</label>
                 </div>
               </div>
             </div>
 
             <div class="formData">
               <div class="checkbox-button">
-                <input class="checkbox-control" type="checkbox" name="checkbox1" id="checkbox1" checked required>
-                <label class="checkbox-label" for="checkbox1">
+                <input class="checkbox-control" type="checkbox" name="checkbox1" id="checkbox1-input" checked required>
+                <label class="checkbox-label" for="checkbox1-input">
                   <span class="checkbox-icon"></span>J'ai lu et accepté les conditions d'utilisation.
                 </label>
               </div>
 
               <div class="checkbox-button">
-                <input class="checkbox-control" type="checkbox" name="checkbox2" id="checkbox2">
-                <label class="checkbox-label" for="checkbox2">
+                <input class="checkbox-control" type="checkbox" name="checkbox2" id="checkbox2-input">
+                <label class="checkbox-label" for="checkbox2-input">
                   <span class="checkbox-icon"></span>Je souhaite être prévenu des prochains évènements.
                 </label>
               </div>
