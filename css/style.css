@@ -1,0 +1,450 @@
+/** Variables **/
+:root {
+  --color-primary: #FE142F;
+  --color-secondary: #FF4E60;
+  --color-highlight: #279E7A;
+}
+
+/** Animations **/
+@keyframes modalopen {
+  from {
+    opacity: 0;
+    transform: translateY(-150px);
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/** Components **/
+.primary-btn {
+  background: var(--color-primary);
+  color: white;
+  border: unset;
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 500;
+}
+.primary-btn:hover {
+  background: #3876ac;
+}
+
+/** Reset **/
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: "DM Sans", Arial, Helvetica, sans-serif;
+  font-weight: 400;
+  font-size: 18px;
+  max-width: 1300px;
+  margin: 0 auto;
+
+  /* Make footer stick at the bottom of web page */
+  position: relative;
+  min-height: 100%;
+  padding-bottom: 6rem;
+}
+
+/** Navbar **/
+.topnav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 4%;
+  margin-bottom: 7%;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-navbar {
+  display: flex;
+  gap: 10px;
+}
+
+.topnav a {
+  color: #232323;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.topnav a:hover, .topnav a.active {
+  background-color: var(--color-primary);
+  color: white;
+  border-radius: 8px;
+}
+
+.topnav a.active::after {
+  content: "";
+  display: block;
+  position: relative;
+  left: -1%;
+  height: 1px;
+  width: 102%;
+  background-color: white;
+}
+
+.topnav .icon {
+  display: none;
+}
+
+/** Hero section **/
+.hero-section {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 8px 0px;
+  position: relative;
+  background: #232323;
+  color: white;
+}
+.hero-content {
+  padding: 53px 0px 70px 56px;
+  position: relative;
+  z-index: 10;
+
+  display: flex;
+  flex-direction: column;
+  gap: 73px;
+}
+.hero-headline {
+  font-size: 96px;
+  font-weight: 500;
+}
+.hero-text {
+  width: 430px;
+  font-size: 24px;
+}
+.modal-btn {
+  text-transform: capitalize;
+  font-size: 25px;
+  padding: 11px 30px;
+}
+.hero-img {
+  position: absolute;
+  height: 100%;
+  right: 0;
+  top: 0;
+}
+.hero-img img {
+  height: 100%;
+}
+.hero-section > .modal-btn {
+  display: none;
+}
+
+/** Modal form **/
+.button {
+  background: var(--color-primary);
+  margin-top: 0.5em;
+  padding: 1em;
+  color: white;
+  border-radius: 15px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button:hover {
+  background: #3876ac;
+}
+
+.smFont {
+  font-size: 16px;
+}
+
+.bground {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(26, 39, 156, 0.4);
+}
+
+.bground.show {
+  display: block;
+}
+
+.content {
+  margin: 5% auto;
+  width: 100%;
+  max-width: 500px;
+  animation-name: modalopen;
+  animation-duration: 0.8s;
+  background: #232323;
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+  color: white;
+  padding-top: 10px;
+}
+
+.modal-body {
+  padding: 0px 8%;
+  margin: 30px auto;
+  position: relative;
+}
+
+label {
+  font-size: 17px;
+  font-weight: normal;
+  display: inline-block;
+  margin-bottom: 11px;
+}
+input {
+  padding: 8px;
+  border: 0.8px solid #ccc;
+  outline: none;
+}
+.text-control {
+  margin: 0;
+  padding: 8px;
+  width: 100%;
+  border-radius: 8px;
+  font-size: 20px;
+  height: 48px;
+}
+.formData[data-error]::after {
+  content: attr(data-error);
+  font-size: 0.4em;
+  color: var(--color-secondary);
+  display: block;
+  margin-top: 7px;
+  margin-bottom: 7px;
+  text-align: right;
+  line-height: 0.3;
+  opacity: 0;
+  transition: 0.3s;
+}
+.formData[data-error-visible="true"]::after {
+  opacity: 1;
+}
+.formData[data-error-visible="true"] .text-control {
+  border: 2px solid var(--color-secondary);
+}
+.checkbox-label,
+.checkbox2-label {
+  position: relative;
+  margin-left: 36px;
+  font-size: 12px;
+  font-weight: normal;
+}
+.checkbox-label .checkbox-icon,
+.checkbox2-label .checkbox-icon {
+  display: block;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--color-highlight);
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: -30px;
+  top: -1px;
+  transition: 0.3s;
+}
+.checkbox-label .checkbox-icon::after,
+.checkbox2-label .checkbox-icon::after {
+  content: "";
+  width: 13px;
+  height: 13px;
+  background-color: var(--color-highlight);
+  border-radius: 50%;
+  text-indent: 29px;
+  white-space: nowrap;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: 0.3s;
+  opacity: 0;
+}
+.checkbox-input {
+  display: none;
+}
+.checkbox-input:checked + .checkbox-label .checkbox-icon::after,
+.checkbox-input:checked + .checkbox2-label .checkbox-icon::after {
+  opacity: 1;
+}
+.checkbox-input:checked + .checkbox2-label .checkbox-icon {
+  background: var(--color-highlight);
+}
+.checkbox2-label .checkbox-icon {
+  border-radius: 4px;
+  border: 0;
+  background: #c4c4c4;
+}
+.checkbox2-label .checkbox-icon::after {
+  width: 7px;
+  height: 4px;
+  border-radius: 2px;
+  background: transparent;
+  border: 2px solid transparent;
+  border-bottom-color: white;
+  border-left-color: white;
+  transform: rotate(-55deg);
+  left: 21%;
+  top: 19%;
+}
+.close {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+  width: 32px;
+  height: 32px;
+  opacity: 1;
+  cursor: pointer;
+  transform: scale(0.7);
+}
+.close:before,
+.close:after {
+  position: absolute;
+  left: 15px;
+  content: " ";
+  height: 33px;
+  width: 3px;
+  background-color: white;
+}
+.close:before {
+  transform: rotate(45deg);
+}
+.close:after {
+  transform: rotate(-45deg);
+}
+
+/* custom select end */
+.text-label {
+  font-weight: normal;
+  font-size: 16px;
+}
+
+/** Modal Confirmation Screen **/
+#confirmation-screen {
+  background: #232323;
+  padding: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  z-index: -100;
+}
+
+#confirmation-screen.show {
+  z-index: 100;
+}
+
+.confirmation-text-wrapper {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.confirmation-btn:hover {
+  background: #3876ac;
+}
+
+/** Footer **/
+footer {
+  padding-bottom: 63px;
+  width: 100%;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+.copyrights {
+  color: var(--color-primary);
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+/** Responsive Rules **/
+@media screen and (max-width: 768px) {
+  .topnav a {
+    display: none;
+  }
+  .topnav a.icon {
+    float: right;
+    display: block;
+    margin-top: -15px;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
+  .topnav.responsive .icon {
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+  .topnav.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+  /** Hero section **/
+  .hero-section {
+    border-radius: unset;
+    background: unset;
+    box-shadow: unset;
+    color: unset;
+    padding: 0px 30px;
+  }
+  .hero-content {
+    padding: unset;
+    gap: 17px;
+    z-index: unset;
+  }
+  .hero-headline {
+    font-size: 40px;
+  }
+  .hero-text {
+    width: unset;
+    font-size: 13px;
+  }
+  .hero-content .hero-cta {
+    display: none;
+  }
+  .hero-img {
+    position: unset;
+    margin-top: 40px;
+    width: 100%;
+  }
+  .hero-img img {
+    width: 100%;
+    border-radius: 10px;
+  }
+  .hero-section > .modal-btn {
+    display: block;
+    font-size: 14px;
+    margin: 30px auto 0px;
+    padding: 10px 32px;
+  }
+
+  /** Footer **/
+  footer {
+    padding-bottom: 20px;
+  }
+  .copyrights {
+    font-size: 10px;
+    text-align: center;
+  }
+}
