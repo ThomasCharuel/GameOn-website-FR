@@ -381,11 +381,6 @@ footer {
   .header-logo img{
     width: 30vw;
   }
-  .responsive-navbar-button {
-    display: block;
-    color: var(--color-primary);
-    font-size: 1.5rem;
-  }
   .main-navbar {
     display: none;
     gap: unset;
@@ -407,6 +402,30 @@ footer {
   }
   .navbar-link.active::after {
     content: unset;
+  }
+  .responsive-navbar-button {
+    display: block;
+    color: var(--color-primary);
+    font-size: 1.5rem;
+    position: relative;
+  }
+  .topnav.show-hidden-navbar .show-navbar-icon {
+    opacity: 1;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .hide-navbar-icon {
+    position: absolute;
+    left: 0;
+    top: 8%;
+    width: 100%;
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+  }
+  .topnav.show-hidden-navbar .show-navbar-icon {
+    opacity: 0;
+  }
+  .topnav.show-hidden-navbar .hide-navbar-icon {
+    opacity: 1;
   }
 
   /** Hero section **/
