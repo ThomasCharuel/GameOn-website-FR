@@ -10,7 +10,7 @@ function toggleHiddenNavbar() {
 class ModalManager  {
   constructor() {
     // DOM Elements
-    this.modalbg = document.querySelector(".bground");
+    this.modalbg = document.querySelector(".modal");
     this.modalBtn = document.querySelectorAll(".modal-btn");
     this.hideModalBtn = document.querySelectorAll(".close-modal");
     this.formSubmitBtn = document.querySelector('#reserve-form input[type="submit"]');
@@ -50,48 +50,48 @@ class ModalManager  {
 
     // Loop through form input.
     // Each input must be valid to submit form.
-    for (let formDataInput of this.formData) {
-      for (let input of formDataInput.querySelectorAll("input")) {
-        // If input is not valid, we prevent form from being submitted
-        if (!input.checkValidity()) {
-          formIsValid = false;
+    // for (let formDataInput of this.formData) {
+    //   for (let input of formDataInput.querySelectorAll("input")) {
+    //     // If input is not valid, we prevent form from being submitted
+    //     if (!input.checkValidity()) {
+    //       formIsValid = false;
           
-          // Add error message based on input name
-          switch (input.getAttribute("name")) {
-            case "first":
-              formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
-              break;
-            case "last":
-              formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
-              break;
-            case "email":
-              formDataInput.setAttribute("data-error", "Veuillez entrer une adresse électronique valide.");
-              break;
-            case "birthdate":
-              formDataInput.setAttribute("data-error", "Vous devez entrer votre date de naissance.");
-              break;
-            case "quantity":
-              formDataInput.setAttribute("data-error", "Veuillez saisir une valeur numérique.");
-              break;
-            case "location":
-              formDataInput.setAttribute("data-error", "Veuillez sélectionner un tournoi.");
-              break;
-            case "checkbox1":
-              formDataInput.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
-              break;
-          }
+    //       // Add error message based on input name
+    //       switch (input.getAttribute("name")) {
+    //         case "first":
+    //           formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
+    //           break;
+    //         case "last":
+    //           formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
+    //           break;
+    //         case "email":
+    //           formDataInput.setAttribute("data-error", "Veuillez entrer une adresse électronique valide.");
+    //           break;
+    //         case "birthdate":
+    //           formDataInput.setAttribute("data-error", "Vous devez entrer votre date de naissance.");
+    //           break;
+    //         case "quantity":
+    //           formDataInput.setAttribute("data-error", "Veuillez saisir une valeur numérique.");
+    //           break;
+    //         case "location":
+    //           formDataInput.setAttribute("data-error", "Veuillez sélectionner un tournoi.");
+    //           break;
+    //         case "checkbox1":
+    //           formDataInput.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
+    //           break;
+    //       }
 
-          // Set "data-error-visible" attribute to display error message
-          formDataInput.setAttribute("data-error-visible", "true");
+    //       // Set "data-error-visible" attribute to display error message
+    //       formDataInput.setAttribute("data-error-visible", "true");
             
-          break; // Stop the loop with the first invalid input
-        } else {
-          // Remove error message if previously set
-          formDataInput.removeAttribute("data-error-visible");
-          formDataInput.removeAttribute("data-error");
-        }
-      }
-    }
+    //       break; // Stop the loop with the first invalid input
+    //     } else {
+    //       // Remove error message if previously set
+    //       formDataInput.removeAttribute("data-error-visible");
+    //       formDataInput.removeAttribute("data-error");
+    //     }
+    //   }
+    // }
 
     // If form is valid we display a confirmation message
     if (formIsValid) {
