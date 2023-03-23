@@ -457,16 +457,18 @@ footer {
   .modal {
     background-color: unset;
     position: absolute;
-    min-height: calc(100vh - var(--navbar-height-mobile));
-    bottom: 0;
+    overflow: unset;
   }
   .modal-container {
     margin: unset;
-    height: 100%;
   }
   .close {
     width: 20px;
     height: 20px;
+  }
+  .text-control {
+    margin-top: 6px;
+    height: 50px;
   }
 
 
