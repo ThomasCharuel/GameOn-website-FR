@@ -215,20 +215,21 @@ main {
   font-size: 18px;
   height: 64px;
 }
-.formData::after {
+.form-fieldset::after {
   content: "Error Placeholder";
   font-size: 10px;
-  color: var(--color-secondary);
+  color: transparent;
   display: block;
   margin-top: 4px;
   opacity: 0;
   transition: opacity 0.4s;
 }
-.formData[data-error]::after {
+.form-fieldset[data-error]::after {
   content: attr(data-error);
+  color: var(--color-secondary);
   opacity: 1;
 }
-.formData[data-error] .text-control {
+.form-fieldset[data-error] .text-control {
   border: 2px solid var(--color-secondary);
 }
 .radio-buttons-wrapper {

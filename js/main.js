@@ -14,7 +14,6 @@ class ModalManager  {
     this.modalBtn = document.querySelectorAll(".modal-btn");
     this.hideModalBtn = document.querySelectorAll(".close-modal");
     this.formSubmitBtn = document.querySelector('#reserve-form input[type="submit"]');
-    this.formData = document.querySelectorAll(".formData");
     this.form = document.querySelector('#reserve-form');
     this.confirmationScreen = document.querySelector('#confirmation-screen');
   }
@@ -42,70 +41,141 @@ class ModalManager  {
     this.modalbg.classList.remove("show");
   }
 
-  checkValidityBirthdate(birthdateInput) {
-    const birthdate = new Date(birthdateInput.value);
-    // Compute age of the user
-    const years = new Date(new Date() - new Date(birthdate)).getFullYear() - 1970;
+  setErrorMessage(htmlElement, message) {
+    if (message === null) {
+      htmlElement.removeAttribute("data-error");
+    } else {
+      htmlElement.setAttribute("data-error", message);
+    }
+  }
 
-    // Check that age is at least 15
-    return years >= 15;
+  reportFirstnameInputValidity() {
+    let errorMessage = null;
+    
+    const formFielsetElement = document.querySelector(".form-fieldset-firstname");
+    const input = formFielsetElement.querySelector("input");
+
+    if (!input.checkValidity()) {
+      errorMessage = "Veuillez entrer 2 caractères ou plus pour le champ du prénom.";
+    }
+
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    return errorMessage === null;
+  }
+
+  reportLastnameInputValidity() {
+    let errorMessage = null;
+    
+    const formFielsetElement = document.querySelector(".form-fieldset-lastname");
+    const input = formFielsetElement.querySelector("input");
+
+    if (!input.checkValidity()) {
+      errorMessage = "Veuillez entrer 2 caractères ou plus pour le champ du nom.";
+    }
+
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    return errorMessage === null;
+  }
+
+  reportEmailInputValidity() {
+    let errorMessage = null;
+    
+    const formFielsetElement = document.querySelector(".form-fieldset-email");
+    const input = formFielsetElement.querySelector("input");
+
+    if (!input.checkValidity()) {
+      errorMessage = "Veuillez entrer une adresse électronique valide.";
+    }
+
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    return errorMessage === null;
+  }
+
+  reportBirthdateInputValidity() {
+    let errorMessage = null;
+
+    const formFielsetElement = document.querySelector(".form-fieldset-birthdate");
+    const input = formFielsetElement.querySelector("input");
+
+    if (!input.checkValidity()) {
+      errorMessage = "Vous devez entrer votre date de naissance.";
+    } else {
+      // Compute user's age
+      const age = new Date(new Date() - new Date(input.value)).getFullYear() - 1970;
+
+      // User must be at least 15 years old
+      if (age < 15) {
+        errorMessage = "Vous devez avoir au moins 15 ans pour vous inscrire.";
+      }
+    }
+
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    return errorMessage === null;
+  }
+
+  reportQuantityInputValidity() {
+    let errorMessage = null;
+    
+    const formFielsetElement = document.querySelector(".form-fieldset-quantity");
+    const input = formFielsetElement.querySelector("input");
+
+    if (!input.checkValidity()) {
+      errorMessage = "Veuillez saisir une valeur numérique.";
+    }
+
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    return errorMessage === null;
+  }
+
+  reportLocationInputValidity() {
+    let errorMessage = null;
+
+    const formFielsetElement = document.querySelector(".form-fieldset-location");
+    
+    for (let input of formFielsetElement.querySelectorAll("input")) {
+      if (!input.checkValidity()) {
+        errorMessage = "Veuillez sélectionner un tournoi.";
+        break;
+      }
+    }
+
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    return errorMessage === null;
+  }
+
+  reportTermsAndConditionsInputValidity() {
+    let errorMessage = null;
+
+    const formFielsetElement = document.querySelector(".form-fieldset-terms-and-conditions");
+    const input = formFielsetElement.querySelector("#terms-and-conditions-input");
+
+    if (!input.checkValidity()) {
+      errorMessage = "Vous devez vérifier que vous acceptez les termes et conditions.";
+    }
+    this.setErrorMessage(formFielsetElement, errorMessage);
+    
+    return errorMessage === null;
   }
 
   // Handle modal form submit
   handleFormSubmit(e) {
     e.preventDefault(); // Prevent default submit behavior
+
+    // Check form input validity and set error message if needed
+    const reportValidityInputs = [
+      this.reportFirstnameInputValidity(),
+      this.reportLastnameInputValidity(),
+      this.reportEmailInputValidity(),
+      this.reportBirthdateInputValidity(),
+      this.reportQuantityInputValidity(),
+      this.reportLocationInputValidity(),
+      this.reportTermsAndConditionsInputValidity()
+    ]
+
     // Will be set to false if there is at least one invalid input
-    let formIsValid = true;
-
-    // Loop through form input.
-    // Each input must be valid to submit form.
-    for (let formDataInput of this.formData) {
-      for (let input of formDataInput.querySelectorAll("input")) {
-        // Display error messages based on the input
-        // Input not valid
-        const input_not_valid = !input.checkValidity();
-
-        // Input is birthdate and birthdate not valid
-        const birthdate_not_valid = (
-          input.getAttribute("name") === "birthdate" && !this.checkValidityBirthdate(input));
-
-        // If input is not valid, we prevent form from being submitted
-        if (input_not_valid) {
-          formIsValid = false;
-          
-          // Add error message based on input name
-          switch (input.getAttribute("name")) {
-            case "firstname":
-              formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du prénom.");
-              break;
-            case "lastname":
-              formDataInput.setAttribute("data-error", "Veuillez entrer 2 caractères ou plus pour le champ du nom.");
-              break;
-            case "email":
-              formDataInput.setAttribute("data-error", "Veuillez entrer une adresse électronique valide.");
-              break;
-            case "birthdate":
-              formDataInput.setAttribute("data-error", "Vous devez entrer votre date de naissance.");
-              break;
-            case "quantity":
-              formDataInput.setAttribute("data-error", "Veuillez saisir une valeur numérique.");
-              break;
-            case "location":
-              formDataInput.setAttribute("data-error", "Veuillez sélectionner un tournoi.");
-              break;
-            case "checkbox1":
-              formDataInput.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
-              break;
-          }
-        } else if (birthdate_not_valid) {
-          formDataInput.setAttribute("data-error", "Vous devez avoir au moins 15 ans pour vous inscrire.");
-        } else {
-          // Remove error message if previously set
-          formDataInput.removeAttribute("data-error");
-        }
-        break; // Stop the loop with the first invalid input
-      }
-    }
+    const formIsValid = reportValidityInputs.reduce(
+      (a, b) => a && b
+    );
 
     // If form is valid
     if (formIsValid) {

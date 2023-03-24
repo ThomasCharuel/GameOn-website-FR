@@ -47,32 +47,32 @@
         <span class="close close-modal"></span>
         <div class="modal-body">
           <form id="reserve-form" name="reserve" novalidate>
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-firstname">
               <label for="firstname-input" class="form-label">Prénom</label>
               <input class="text-control" type="text" id="firstname-input" name="firstname" minlength="2" required>
             </div>
             
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-lastname">
               <label for="lastname-input" class="form-label">Nom</label>
               <input class="text-control" type="text" id="lastname-input" name="lastname" minlength="2" required>
             </div>
             
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-email">
               <label for="email-input" class="form-label">E-mail</label>
               <input class="text-control" type="email" id="email-input" name="email">
             </div>
             
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-birthdate">
               <label for="birthdate-input" class="form-label">Date de naissance</label>
               <input class="text-control" type="date" id="birthdate-input" name="birthdate" required>
             </div>
             
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-quantity">
               <label for="quantity-input" class="form-label">À combien de tournois GameOn avez-vous déjà participé ?</label>
               <input type="number" class="text-control" id="quantity-input" name="quantity" min="0" max="99">
             </div>
             
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-location">
               <p class="form-label">A quel tournoi souhaitez-vous participer cette année ?</p>
               <div class="radio-buttons-wrapper">
                 <div class="radio-button">
@@ -107,10 +107,10 @@
               </div>
             </div>
 
-            <div class="formData">
+            <div class="form-fieldset form-fieldset-terms-and-conditions">
               <div class="checkbox-button">
-                <input class="checkbox-control" type="checkbox" name="checkbox1" id="checkbox1-input" checked required>
-                <label class="checkbox-label" for="checkbox1-input">
+                <input class="checkbox-control" type="checkbox" name="checkbox1" id="terms-and-conditions-input" checked required>
+                <label class="checkbox-label" for="terms-and-conditions-input">
                   <span class="checkbox-icon"></span>J'ai lu et accepté les conditions d'utilisation.
                 </label>
               </div>
