@@ -48,8 +48,9 @@ body {
   font-family: var(--font-family-primary);
   font-weight: 400;
   font-size: 18px;
-  margin: 0 4vw;
-
+  max-width: 1300px;
+  margin: auto;
+  
   /* Make footer stick at the bottom of web page */
   position: relative;
   min-height: 100%;
@@ -65,9 +66,7 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4vh 0px;
-  max-width: 1300px;
-  margin: auto;
+  padding: 4vh 20px;
 }
 .header-logo {
   display: flex;
