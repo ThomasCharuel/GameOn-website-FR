@@ -142,8 +142,10 @@ main {
 .hero-img {
   position: absolute;
   height: 100%;
-  right: 0;
+  width: 100%;
   top: 0;
+  display: flex;
+  justify-content: flex-end;
 }
 .hero-img img {
   height: 100%;
