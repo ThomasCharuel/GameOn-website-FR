@@ -6,8 +6,6 @@
 
   --font-family-primary: "DM Sans", Arial, Helvetica, sans-serif;
   --font-family-secondary: "Roboto", sans-serif;
-
-  --navbar-height-mobile: 80px;
 }
 
 /** Animations **/
@@ -50,8 +48,7 @@ body {
   font-family: var(--font-family-primary);
   font-weight: 400;
   font-size: 18px;
-  max-width: 1300px;
-  margin: 0 auto;
+  margin: 0 4vw;
 
   /* Make footer stick at the bottom of web page */
   position: relative;
@@ -68,7 +65,9 @@ input {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 4% 0px;
+  padding: 4vh 0px;
+  max-width: 1300px;
+  margin: auto;
 }
 .header-logo {
   display: flex;
@@ -107,9 +106,10 @@ input {
 /** Hero section **/
 main {
   position: relative;
+  max-width: 1300px;
+  margin: 4vh auto;
 }
 .hero-section {
-  margin-top: 3%;
   border-radius: 8px;
   overflow: hidden;
   box-shadow: rgba(0, 0, 0, 0.25) 0px 8px 8px 0px;
@@ -365,31 +365,51 @@ footer {
 }
 
 /** Responsive Rules **/
+@media screen and (max-width: 1200px) {
+  /** Navbar **/
+  .header-logo img{
+    width: 16vw;
+  }
+  .main-navbar {
+    gap: 6px;
+  }
+  .navbar-link {
+    text-align: center;
+    font-size: 16px;
+  }
+}
+
+/** Responsive Rules **/
 @media screen and (max-width: 768px) {
   /** Navbar **/
   .topnav {
-    height: var(--navbar-height-mobile);
-    padding: 0 30px;
     position: relative;
   }
   .header-logo img{
     width: 30vw;
   }
   .main-navbar {
-    display: none;
+    display: flex;
     gap: unset;
     position: absolute;
     left: 0;
-    top: 100%;
+    top: 80%;
     width: 100%;
     flex-direction: column; 
     background-color: white;
     z-index: 200;
-    border-bottom: 1px solid #f4f4f4;
-    box-shadow: 1px 1px 4px 0 rgba(0,0,0,.1);
+    border: 1px solid #e4e4e4;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 1px 1px 6px 0 rgba(0,0,0,.15);
+    opacity: 0;
+    transform-origin: top;
+    transform: scaleY(0%);
+    transition: opacity 0.4s, transform 0.4s;
   }
   .topnav.show-hidden-navbar .main-navbar {
-    display: flex;
+    opacity: 1;
+    transform: scaleY(100%);
   }
   .navbar-link:hover, .navbar-link.active {
     border-radius: unset;
@@ -400,7 +420,7 @@ footer {
   .responsive-navbar-button {
     display: block;
     color: var(--color-primary);
-    font-size: 1.5rem;
+    font-size: 1.8rem;
     position: relative;
   }
   .topnav.show-hidden-navbar .show-navbar-icon {
