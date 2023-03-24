@@ -204,11 +204,6 @@ main {
 .modal-body {
   position: relative;
 }
-#reserve-form {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
 .form-label {
   font-size: 14px;
 }
@@ -220,14 +215,20 @@ main {
   font-size: 18px;
   height: 64px;
 }
-.formData[data-error]::after {
-  content: attr(data-error);
+.formData::after {
+  content: "Error Placeholder";
   font-size: 10px;
   color: var(--color-secondary);
   display: block;
   margin-top: 4px;
+  opacity: 0;
+  transition: opacity 0.4s;
 }
-.formData[data-error-visible="true"] .text-control {
+.formData[data-error]::after {
+  content: attr(data-error);
+  opacity: 1;
+}
+.formData[data-error] .text-control {
   border: 2px solid var(--color-secondary);
 }
 .radio-buttons-wrapper {
@@ -302,8 +303,11 @@ main {
 .checkbox-control:checked + .checkbox-label .checkbox-icon::after {
   opacity: 1;
 }
+.btn-submit-wrapper {
+  margin-top: 10px;
+  text-align: center;
+}
 .btn-submit {
-  margin: auto;
   width: 180px;
   padding: 12px 0px;
   font-size: 14px;

@@ -97,15 +97,10 @@ class ModalManager  {
               formDataInput.setAttribute("data-error", "Vous devez vérifier que vous acceptez les termes et conditions.");
               break;
           }
-
-          // Set "data-error-visible" attribute to display error message
-          formDataInput.setAttribute("data-error-visible", "true");
         } else if (birthdate_not_valid) {
           formDataInput.setAttribute("data-error", "Vous devez avoir au moins 15 ans pour vous inscrire.");
-          formDataInput.setAttribute("data-error-visible", "true");
         } else {
           // Remove error message if previously set
-          formDataInput.removeAttribute("data-error-visible");
           formDataInput.removeAttribute("data-error");
         }
         break; // Stop the loop with the first invalid input
