@@ -1,12 +1,15 @@
-/***
-When called, this function toggle a class in the navbar 
-to display (or not) the navbar links 
-***/
+/**
+ * When called, this function toggle a class in the navbar 
+ * to display (or not) the navbar links 
+ */
 function toggleHiddenNavbar() {
   const navbar = document.querySelector(".topnav");
   navbar.classList.toggle("show-hidden-navbar");
 }
 
+/**
+ * This class handles the tournament signup form modal.
+ */
 class ModalManager  {
   constructor() {
     // DOM Elements
@@ -14,7 +17,6 @@ class ModalManager  {
     this.modalBtn = document.querySelectorAll(".modal-btn");
     this.hideModalBtn = document.querySelectorAll(".close-modal");
     this.formSubmitBtn = document.querySelector('#reserve-form input[type="submit"]');
-    this.form = document.querySelector('#reserve-form');
     this.confirmationScreen = document.querySelector('#confirmation-screen');
   }
 
@@ -41,6 +43,7 @@ class ModalManager  {
     this.modalbg.classList.remove("show");
   }
 
+  // Set the error message in an attribute of the html element
   setErrorMessage(htmlElement, message) {
     if (message === null) {
       htmlElement.removeAttribute("data-error");
@@ -49,6 +52,7 @@ class ModalManager  {
     }
   }
 
+  // Check input validity and set error message.
   reportFirstnameInputValidity() {
     let errorMessage = null;
     
@@ -189,5 +193,6 @@ class ModalManager  {
   }
 }
 
+// Instanciate a new modal manager and create the event listeners associated
 const modalManager = new ModalManager();
 modalManager.setUpModalEvents();
