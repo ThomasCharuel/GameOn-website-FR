@@ -403,12 +403,12 @@ footer {
     box-shadow: 1px 1px 6px 0 rgba(0,0,0,.15);
     opacity: 0;
     transform-origin: top;
-    transform: scaleY(0%);
+    transform: scaleY(0);
     transition: opacity 0.4s, transform 0.4s;
   }
   .topnav.show-hidden-navbar .main-navbar {
     opacity: 1;
-    transform: scaleY(100%);
+    transform: scaleY(1);
   }
   .navbar-link:hover, .navbar-link.active {
     border-radius: unset;
