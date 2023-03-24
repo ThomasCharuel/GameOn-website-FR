@@ -83,7 +83,9 @@ class ModalManager  {
     const formFielsetElement = document.querySelector(".form-fieldset-email");
     const input = formFielsetElement.querySelector("input");
 
-    if (!input.checkValidity()) {
+    const emailRegex = new RegExp(/^((?!\.)[\w-_.]*[^.])(@\w+)(\.\w+(\.\w+)?[^.\W])$/, "gm");
+
+    if (input.value !== "" && !emailRegex.test(input.value)) {
       errorMessage = "Veuillez entrer une adresse électronique valide.";
     }
 
